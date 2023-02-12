@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!--Start Welcome Section-->
+
+<section id="home" class="welcome-section">
+    <img id="profile-pic" src="{% static 'images/Puskar.jpg' %}" alt="{{ personal_info.name }}" width="180", height="200">
+    <h1>Hi, I am {{ personal_info.name }} !</h1>
+    <p>a web developer</p>
+</section>
+
+<!--End Welcome Section-->
+<!--Start Project Section-->
+
+<section id="project" class="project-section">
+
+
+    <h2 id="project-section-header">
+        My Projects
+    </h2>
+    {% for project in projects %}
+        <div class="project-grid">
+            <a href="#" target="_blank" class="project project-tile">
+                <p class="project-title"><span class="code">&lt;</span>{{ project.title }}<span class="code">&#47;&gt;</span>
+                </p>
+                <small>{{ project.created_on.date }} |&nbsp; </small>
+                <p>{{ project.description | slice:':200' }}...</p>
+            </a>
+        </div>
+    {% endfor %}    
+    <a href="#" class="btn btn-show-all" target="_blank">Show all<i class="fas fa-chevron-right"></i>
+    </a>
+
+</section>
+
+<!--End project section-->
+<!--Start Contacts Section-->
+
+<section class="contact-section" id="contact">
+    <div class="contact-section-header">
+        <h2>Let's work together...</h2>
+        <p>How is your day going?</p>
+    </div>
+    <div class="contact-links">
+        <a href="https://www.facebook.com/jopuskar" class="btn contact-details" target="_blank"><i class="fab fa-facebook-square"></i> Facebook</a>
+        <a href="https://www.github.com/jopuskar" class="btn contact-details" target="_blank"><i class="fab fa-github"></i> Github</a>
+        <a href="https://instagram.com/puskarjoshi_" class="btn contact-details" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://twitter.com/impuskarjoshi" class="btn contact-details" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="mailto:puskarjoshi22@gmail.com" class="btn contact-details" target="_blank"><i class="fas fa-at"></i> Send a mail</a>
+    </div>
+</section>
+
+<!--End Contacts Section-->
+
+{% endblock %}
