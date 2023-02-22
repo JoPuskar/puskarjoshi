@@ -1,0 +1,29 @@
+{% extends 'base.html' %}   
+
+{% block content %}
+
+    <section id="project" class="project-section">
+        <h2 id="project-section-header">
+            All Projects
+        </h2>
+        <div class="project-grid-container">
+        {% for project in projects %}
+            <div class="project-grid-item">
+                <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" target="_blank" class="project project-tile">
+                    <p class="project-title"><span class="code">&lt;</span>{{ project.title }}
+                        <span class="code">&#47;&gt;</span>
+                    </p>
+                    <img class="project-image" src="{{ project.image.url }}" alt="{{ project.title }} image">
+                    <p>
+                        {{ project.description | slice:':200' }}...
+                    </p>
+            </div>    
+        {% endfor %}
+        </div>
+        <a href="{% url 'portfolio:show_all_projects' %}" class="btn btn-show-all" target="_blank">
+            Show all<i class="fas fa-chevron-right"></i>
+        </a>
+
+    </section>
+
+{% endblock %}

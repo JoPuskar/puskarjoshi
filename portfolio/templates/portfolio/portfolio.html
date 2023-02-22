@@ -8,7 +8,7 @@
 <section id="home" class="welcome-section">
     <img id="profile-pic" src="{% static 'images/Puskar.jpg' %}" alt="{{ personal_info.name }}" width="180", height="200">
     <h1>Hi, I am {{ personal_info.name }} !</h1>
-    <p>a web developer</p>
+    <p>a Software Developer</p>
 </section>
 
 <!--End Welcome Section-->
@@ -20,17 +20,19 @@
     <h2 id="project-section-header">
         My Projects
     </h2>
-    {% for project in projects %}
-        <div class="project-grid">
-            <a href="#" target="_blank" class="project project-tile">
-                <p class="project-title"><span class="code">&lt;</span>{{ project.title }}<span class="code">&#47;&gt;</span>
-                </p>
-                <small>{{ project.created_on.date }} |&nbsp; </small>
-                <p>{{ project.description | slice:':200' }}...</p>
-            </a>
-        </div>
-    {% endfor %}    
-    <a href="#" class="btn btn-show-all" target="_blank">Show all<i class="fas fa-chevron-right"></i>
+    <div class="project-grid-container">
+        {% for project in projects %}
+            <div class="project-grid-item">
+                <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" class="project project-tile">
+                    <p class="project-title"><span class="code">&lt;</span>{{ project.title }}<span class="code">&#47;&gt;</span>
+                    </p>
+                    <img class="project-image" src="{{ project.image.url }}" alt="{{ project.title }} image">
+                    <p>{{ project.description | slice:':80' }}...</p>
+                </a>
+            </div>
+        {% endfor %}    
+    </div>
+    <a href="{% url 'portfolio:show_all_projects' %}" class="btn btn-show-all" target="_blank">Show all<i class="fas fa-chevron-right"></i>
     </a>
 
 </section>

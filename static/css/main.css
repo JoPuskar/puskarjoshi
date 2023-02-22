@@ -3,6 +3,7 @@
 	--main-red: #be3144;
 	--main-blue: #45567d;
 	--main-grey:  #303841;
+	--main-black: #000000;
 }
 
 /* Base reset */
@@ -163,7 +164,7 @@ img {
 	}
 }
 
-.project-grid {
+.project-grid-container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	grid-gap: 2.5rem;
@@ -173,12 +174,20 @@ img {
 	margin-bottom: 6rem;
 }
 
+.project-grid-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+
 @media (max-width:  38.625em){
 	.project-section{
 		padding: 6rem 1rem;
 	}
 
-	.project-grid{
+	.project-grid-container {
 		grid-template-columns: 1fr;
 	}
 }
@@ -202,6 +211,8 @@ img {
 	height: calc(100% - 6.8rem);
 	width: 100%;
 	object-fit: cover;
+	max-width: 800px;
+	max-height: 300px;
 }
 
 .porject-title {
@@ -233,6 +244,39 @@ img {
 	margin-left: 10px;
 	transform: translateX(0);
 	transition: transform 0.3s ease-out;
+}
+
+.project-detail {
+	text-align: center;
+	padding: 10rem 2rem;
+	background: var(--main-white);
+	color: #000000;
+}
+
+#project-detail-header {
+	max-width: 640px;
+	margin: 0 auto 6rem auto;
+	border-bottom: 1px solid var(--main-black);
+	color: #000000;
+}
+
+.image-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	margin-bottom: 20px;
+}
+
+.text-container {
+	max-width: 850px;
+	margin: auto;
+	padding: 0 20px;
+	text-align: justify;
+}
+
+.show-all-button {
+	margin-top: 20px;
 }
 
 /**** Contact Section ****/
