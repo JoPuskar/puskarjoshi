@@ -9,7 +9,7 @@
         <div class="project-grid-container">
         {% for project in projects %}
             <div class="project-grid-item">
-                <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" target="_blank" class="project project-tile">
+                <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" class="project project-tile">
                     <p class="project-title"><span class="code">&lt;</span>{{ project.title }}
                         <span class="code">&#47;&gt;</span>
                     </p>
@@ -20,7 +20,7 @@
             </div>    
         {% endfor %}
         </div>
-        <a href="{% url 'portfolio:show_all_projects' %}" class="btn btn-show-all" target="_blank">
+        <a href="{% url 'portfolio:show_all_projects' %}" class="btn btn-show-all">
             Show all<i class="fas fa-chevron-right"></i>
         </a>
 
