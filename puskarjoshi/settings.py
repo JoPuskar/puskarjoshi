@@ -13,7 +13,6 @@ from math import degrees
 import os
 
 from pathlib import Path
-from pickle import TRUE
 
 from dotenv import load_dotenv
 
@@ -35,6 +34,7 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 if not DEBUG:
     SECRET_KEY = os.getenv('SECRET_KEY')
 
@@ -129,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Katmandu'
 
 USE_I18N = True
 
