@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="project-detail" class="project-detail">
+    <h2 id="project-detail-header">
+        {{ project.title }}
+    </h2>
+
+    <div class="image-container">
+                <img class="project-image" src="{{ project.image.url }}" alt="{{ project.title }} image">
+    </div>
+
+    <div class="text-container">
+        <p>
+            {{ project.description }}
+        </p>
+    </div>
+    <div class="show-all-button">
+        <a href="{% url 'portfolio:show_all_projects' %}" class="btn btn-show-all">
+            <i class="fas fa-chevron-left"></i> All Projects
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}
