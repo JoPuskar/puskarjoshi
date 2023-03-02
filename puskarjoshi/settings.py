@@ -57,6 +57,7 @@ if not 'INSTALLED_APPS' in locals():
         'django.contrib.staticfiles',
 
         'portfolio',
+        'blog',
     ]
 
 
