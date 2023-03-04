@@ -26,7 +26,7 @@
                 <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" class="project-title">
                     <p class="project-title">{{ project.title }}
                     </p>
-                    <img class="project-image" src="{{ project.image.url }}" alt="{{ project.title }} image">
+                    <img class="project-image" src="{% static project.image.url %}" alt="{{ project.title }} image">
                     <p>{{ project.description | slice:':80' }}...</p>
                 </a>
             </div>

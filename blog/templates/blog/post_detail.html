@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -7,11 +8,11 @@
         {{ post.title }}
     </h2>
 
-    <div class="image-container">
-                <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }} image">
+    <div class="post-image-container">
+        <img class="post-image" src="{% static post.image.url %}" alt="{{ post.title }} image">
     </div>
 
-    <div class="text-container">
+    <div class="post-text-container">
         <p>
             {{ post.content }}
         </p>

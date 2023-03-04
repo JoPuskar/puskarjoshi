@@ -14,7 +14,7 @@
                 <a href="{% url 'blog:blog_detail' post_id=post.pk %}" class="post-title">
                     <p class="post-title">{{ post.title }}
                     </p>
-                    <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }} image">
+                    <img class="post-image" src="{% static post.image.url %}" alt="{{ post.title }} image">
                     <p>
                         {{ post.content | slice:':80' }}...
                     </p>
