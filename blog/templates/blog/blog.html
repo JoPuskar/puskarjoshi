@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="blog" class="post-section">
+    <h2 id="post-section-header">
+        My Blogs
+    </h2>
+    </h4>
+    <div class="post-grid-container">
+        {% if posts %}
+        {% for post in posts %}
+            <div class="post-grid-item">
+                <a href="{% url 'blog:blog_detail' post_id=post.pk %}" class="post-title">
+                    <p class="post-title">{{ post.title }}
+                    </p>
+                    <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }} image">
+                    <p>
+                        {{ post.content | slice:':80' }}...
+                    </p>
+                </a>
+            </div>   
+        {% endfor %}
+        {% else %}
+            <h4 id="post-nopost">
+                No posts yet!
+            </h4>
+        {% endif %}
+    </div>
+    <a href="{% url 'blog:all_blogs' %}" class="btn btn-show-all">
+        Show all<i class="fas fa-chevron-right"></i>
+    </a>
+
+</section>
+
+{% endblock %}

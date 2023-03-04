@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="post-detail" class="post-detail">
+    <h2 id="post-detail-header">
+        {{ post.title }}
+    </h2>
+
+    <div class="image-container">
+                <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }} image">
+    </div>
+
+    <div class="text-container">
+        <p>
+            {{ post.content }}
+        </p>
+    </div>
+    <div class="show-all-button">
+        <a href="{% url 'blog:all_blogs' %}" class="btn btn-show-all">
+            <i class="fas fa-chevron-left"></i> All Blogs
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}

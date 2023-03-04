@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -15,6 +16,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
+    image = models.ImageField(upload_to='blog/images', null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:

@@ -9,9 +9,8 @@
         <div class="project-grid-container">
         {% for project in projects %}
             <div class="project-grid-item">
-                <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" class="project project-tile">
-                    <p class="project-title"><span class="code">&lt;</span>{{ project.title }}
-                        <span class="code">&#47;&gt;</span>
+                <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" class="project-title">
+                    <p class="project-title">{{ project.title }}
                     </p>
                     <img class="project-image" src="{{ project.image.url }}" alt="{{ project.title }} image">
                     <p>
