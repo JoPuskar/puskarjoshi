@@ -8,6 +8,7 @@
         All Blogs
     </h2>
     <div class="post-grid-container">
+    {% if posts %}
     {% for post in posts %}
         <div class="post-grid-item">
             <a href="{% url 'blog:blog_detail' post_id=post.pk %}" class="post-title">
@@ -20,6 +21,11 @@
             </a>
         </div>    
     {% endfor %}
+    {% else %}
+    <h4 id="post-nopost">
+        No posts yet!
+    </h4>
+    {% endif%}
     </div>
     <a href="{% url 'blog:all_blogs' %}" class="btn btn-show-all">
         Show all<i class="fas fa-chevron-right"></i>
