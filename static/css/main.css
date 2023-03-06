@@ -159,6 +159,11 @@ img {
 	color: #181719;
 }
 
+#project-noproject {
+	text-align: center;
+	color: red;
+}
+
 @media (max-width: 28.75em) {
 	#project-section-header {
 		font-size: 2rem;

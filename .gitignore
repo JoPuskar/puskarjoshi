@@ -19,3 +19,6 @@ assets/
 */*/__pycache__/
 
 */__pycache__/
+
+#database
+*.sql
