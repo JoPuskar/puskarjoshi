@@ -9,7 +9,11 @@
     </h2>
 
     <div class="project-image-container">
-                <img class="project-image" src="{% static project.image.url %}" alt="{{ project.title }} image">
+        {% if project.image %}
+            <img class="project-image" src="{{ project.image.url }}" alt="{{ project.title }} image">
+        {% else %}
+            <img class="project-image" src="{% static 'images/MyProject.png' %}" alt="{{ project.title }} image">
+        {% endif %}
     </div>
 
     <div class="project-text-container">

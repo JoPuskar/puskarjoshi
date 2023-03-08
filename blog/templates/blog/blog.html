@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block content %}
@@ -14,7 +15,11 @@
                 <a href="{% url 'blog:blog_detail' post_id=post.pk %}" class="post-title">
                     <p class="post-title">{{ post.title }}
                     </p>
-                    <img class="post-image" src="{% static post.image.url %}" alt="{{ post.title }} image">
+                    {% if post.image %}
+                        <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }} image">
+                    {% else %}
+                        <img class="post-image" src="{% static 'images/MyBlog.png' %}" alt="{{ post.title }} image">
+                    {% endif %}
                     <p>
                         {{ post.content | slice:':80' }}...
                     </p>

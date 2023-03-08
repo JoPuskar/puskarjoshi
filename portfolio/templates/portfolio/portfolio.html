@@ -22,18 +22,24 @@
     </h2>
     <div class="project-grid-container">
         {% if projects %}
-        {% for project in projects %}
-            <div class="project-grid-item">
-                <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" class="project-title">
-                    <p class="project-title">{{ project.title }}
-                    </p>
-                    <img class="project-image" src="{% static project.image.url %}" alt="{{ project.title }} image">
-                    <p>{{ project.description | slice:':80' }}...</p>
-                </a>
-            </div>
-        {% endfor %}    
+            {% for project in projects %}
+                <div class="project-grid-item">
+                    <a href="{% url 'portfolio:project_detail' project_id=project.pk %}" class="project-title">
+                        <p class="project-title">{{ project.title }}
+                        </p>
+                        {% if project.image %}
+                            <img class="project-image" src="{{ project.image.url }}" alt="{{ project.title }} image">
+                        {% else %}
+                            <img class="project-image" src="{% static 'images/MyProject.png' %}" alt="{{ project.title }} image">
+                        {% endif %}          
+                        <p>{{ project.description | slice:':80' }}...</p>
+                    </a>
+                </div>
+            {% endfor %}    
         {% else %}
-            <h4 id="project-noproject">No projects yet!</h4>
+            <h4 id="project-noproject">
+                No projects yet!
+            </h4>
         {% endif %}
     </div>
     <a href="{% url 'portfolio:show_all_projects' %}" class="btn btn-show-all">Show all<i class="fas fa-chevron-right"></i>
