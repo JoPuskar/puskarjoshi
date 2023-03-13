@@ -8,6 +8,12 @@
         {{ post.title }}
     </h2>
 
+    <div class="post-author">
+        <img class="author-image" src="{{ post.author.pofile_pic.url }}" alt="{{ post.author.username }} image">
+        <p class="author_name">{{ post.author.get_full_name }}</p>
+        <p class="post-date">{{ post.created_on|date:"F j, Y" }} </p>
+    </div>
+    
     <div class="post-image-container">
         {% if post.image %}
             <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }} image">
