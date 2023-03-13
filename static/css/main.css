@@ -413,8 +413,11 @@ img {
 #post-detail-header {
 	max-width: 640px;
 	margin: 0 auto 6rem auto;
-	border-bottom: 1px solid var(--main-black);
 	color: #000000;
+}
+
+.post-author{
+	margin: 10px 10px;
 }
 
 .author-image {
@@ -423,6 +426,18 @@ img {
 	border-radius: 50%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.author-name {
+	font-family: nyt-franklin,Helvetica Neue,Arial,sans-serif;
+	font-size: smaller;
+	font-weight: bold;
+}
+
+.post-date{
+	font-family: nyt-franklin,Helvetica Neue,Arial,sans-serif;
+	font-size: smaller;
+	font-weight: lighter;
 }
 
 .post-image-container {
