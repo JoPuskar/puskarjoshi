@@ -281,7 +281,7 @@ img {
 	max-width: 850px;
 	margin: auto;
 	padding: 0 20px;
-	text-align: center;
+	text-align: justify;
 }
 
 .show-all-button {
@@ -450,9 +450,10 @@ img {
 
 .post-text-container {
 	max-width: 850px;
+	text-rendering: optimizeLegibility;
 	margin: auto;
 	padding: 0 20px;
-	text-align: center;
+	text-align: justify;
 }
 
 .show-all-button {
