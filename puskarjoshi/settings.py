@@ -11,64 +11,70 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 from math import degrees
 import os
+import secrets
+from django.core.management.utils import get_random_secret_key
 
 from pathlib import Path
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-import dj_database_url
+# import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = False
+DEBUG = True
 
 try:
     from .local_settings import *
 except ImportError:
     pass
 
-load_dotenv(BASE_DIR / '.env')
+# load_dotenv(BASE_DIR / '.env')
+
+ALLOWED_HOSTS = ['*']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-if not DEBUG:
-    SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
+SECRET_KEY = os.getenv('SECRET_KEY', SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if not DEBUG:
-    DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', 'l']
+# if not DEBUG:
+#     DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', 'l']
+DEBUG=True
 
-if not 'ALLOWED_HOSTS' in locals():
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
+# if 'ALLOWED_HOSTS' in os.environ:
+#     ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
-if not 'INSTALLED_APPS' in locals():
-    INSTALLED_APPS = [
+# if not 'INSTALLED_APPS' in locals():
+INSTALLED_APPS = [
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'debug_toolbar',
 
         'portfolio',
         'blog',
     ]
 
 
-if not 'MIDDLEWARE' in locals():
-    MIDDLEWARE = [
+# if not 'MIDDLEWARE' in locals():
+MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
         'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -101,10 +107,23 @@ WSGI_APPLICATION = 'puskarjoshi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if not 'DATABASES' in locals():
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
+# if not 'DATABASES' in locals():
+# DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
+# }
+# settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'puskarjoshi',
+        'USER': 'joshi',
+        'PASSWORD': 'joshipass',
+        'HOST': 'localhost',  # Or the IP address of your PostgreSQL server
+        'PORT': '5432',       # Default PostgreSQL port
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -124,7 +143,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 

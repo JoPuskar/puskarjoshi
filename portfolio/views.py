@@ -1,13 +1,13 @@
 from django.shortcuts import get_object_or_404, render
 
-from .models import Project, PersonalInformation
+from .models import Project, UserProfile
 from blog.models import Post
 
 # Create your views here.
 
 def portfolio(request):
     projects = Project.objects.all()
-    personal_info = PersonalInformation.objects.first()
+    personal_info = UserProfile.objects.first()
     posts = Post.objects.all()
     return render(request, 'portfolio/portfolio.html', {'projects': projects, 'personal_info': personal_info, 'posts': posts})
 

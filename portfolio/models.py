@@ -6,8 +6,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    pofile_pic = models.ImageField(upload_to='portfolio/images/', null=True, blank=True)
+    user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
+    profile_pic = models.ImageField(upload_to='portfolio/images/', null=True, blank=True)
+    job_title = models.CharField(max_length=100, default='')
+    email = models.EmailField(default='puskarjoshi22@gmail.com')
+    website = models.URLField(null=True, blank=True)
+    resume = models.FileField(upload_to='resumes/', null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
 
     def __str__(self):
@@ -26,13 +30,3 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-
-class PersonalInformation(models.Model):
-    name = models.CharField(max_length=100)
-    job_title = models.CharField(max_length=100)
-    email = models.EmailField()
-    website = models.URLField()
-    resume = models.FileField(upload_to='resumes/', null=True, blank=True)
-
-    def __str__(self):
-        return self.name

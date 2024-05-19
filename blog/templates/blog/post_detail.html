@@ -9,8 +9,8 @@
     </h2>
 
     <div class="post-author">
-        <img class="author-image" src="{{ post.author.pofile_pic.url }}" alt="{{ post.author.username }} image">
-        <p class="author-name">{{ post.author.get_full_name }}</p>
+        <img class="author-image" src="{{ post.author.profile.profile_pic.url }}" alt="{{ post.author.profile.get_full_name }} image">
+        <p class="author-name">{{ post.author.profile.get_full_name }}</p>
         <p class="post-date">{{ post.created_on|date:"F j, Y" }} </p>
     </div>
     

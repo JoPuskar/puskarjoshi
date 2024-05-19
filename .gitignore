@@ -20,5 +20,12 @@ assets/
 
 */__pycache__/
 
+# Ignore virtual environment directories and files
+puskarjoshi/Lib/
+puskarjoshi/Scripts/
+puskarjoshi/pyvenv.cfg
+
 #database
+*migrations
+*venv
 *.sql
