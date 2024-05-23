@@ -29,3 +29,6 @@ puskarjoshi/pyvenv.cfg
 *migrations
 *venv
 *.sql
+
+# Ignore local settings
+local_settings.py
