@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # load_dotenv(BASE_DIR / '.env')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['puskarjoshi.com.np']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -67,7 +67,6 @@ MIDDLEWARE = [
         'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
         'whitenoise.middleware.WhiteNoiseMiddleware',
